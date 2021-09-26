@@ -56,7 +56,7 @@ resource "azurerm_network_security_rule" "rule80" {
   source_port_range = "*"
   destination_port_range = "80"
   source_address_prefix = "*"
-  destination_address_prefix = "*"
+  destination_address_prefixes = flatten([azurerm_subnet.subnet_1.address_prefixes,  azurerm_subnet.subnet_2.address_prefixes])
   network_security_group_name = azurerm_network_security_group.main_sg.name
   resource_group_name = azurerm_resource_group.example_resourcegroup.name
 }
