@@ -1,4 +1,5 @@
 include .\.env
+export
 
 init:
 	terraform init
@@ -9,6 +10,9 @@ apply:
 
 plan:
 	terraform plan
+
+destroy:
+	terraform destroy
 
 
 

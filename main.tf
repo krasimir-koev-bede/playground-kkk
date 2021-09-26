@@ -18,6 +18,6 @@ provider "azurerm" {
 
 
 resource "azurerm_resource_group" "example_resourcegroup" {
-    name = "BDE_TST"
+    name = "example_rg"
     location = var.GLOBAL_LOCATION
 }
