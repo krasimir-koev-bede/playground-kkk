@@ -61,3 +61,13 @@ resource "azurerm_network_security_rule" "rule80" {
   resource_group_name = azurerm_resource_group.example_resourcegroup.name
 }
 
+
+
+resource "azurerm_public_ip" "publicIp1" {
+  name = "${var.GLOBAL_RESOURCENAME_PREFIX}publicIp1"
+  location = var.GLOBAL_LOCATION
+  resource_group_name = azurerm_resource_group.example_resourcegroup.name
+  allocation_method = "Static"
+  ip_version = "IPv4"
+
+}
