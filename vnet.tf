@@ -48,7 +48,7 @@ resource "azurerm_network_security_group" "main_sg" {
 
 
 resource "azurerm_network_security_rule" "rule80" {
-  name = "${var.GLOBAL_RESOURCENAME_PREFIX}rule80"
+  name = "${var.GLOBAL_RESOURCENAME_PREFIX}rule80_ext"
   priority = 150
   direction = "Inbound"
   access = "Allow"
