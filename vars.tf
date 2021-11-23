@@ -60,5 +60,16 @@ variable "GLOBAL_VNET_SUBNETS" {
 
 variable "GLOBAL_RESOURCENAME_PREFIX" {
   type = string
-  default = "bde_test_"
+  default = "en1tstkk99_"
+}
+
+
+variable "vm1_host_user" {
+  type = string
+  default = "krasi"
+}
+
+variable "vm1_host_password" {
+  type = string
+  default = "Krasi123"
 }
