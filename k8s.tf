@@ -49,16 +49,26 @@ resource "azurerm_kubernetes_cluster" "en1tstkk99aks" {
     service_cidr = var.GLOBAL_VNET_SUBNETS.aks
     dns_service_ip = "10.0.79.250"
     docker_bridge_cidr = "10.0.79.200"
+    load_balancer_sku = "Standard"
   }
 
+  node_resource_group = var.k8s_nodes_resource_group_name
+}
+
+data "azurerm_resource_group" "k8snodes_rg" {
+  name = var.k8s_nodes_resource_group_name
+  depends_on = [
+    azurerm_kubernetes_cluster.en1tstkk99aks
+  ]
 }
 
 resource "azurerm_public_ip" "k8sIngressIp" {
   name = "k8sIngressIp"
-  resource_group_name = azurerm_resource_group.example_resourcegroup.name
-  location = azurerm_resource_group.example_resourcegroup.location
+  location = data.azurerm_resource_group.k8snodes_rg.location
+  resource_group_name = var.k8s_nodes_resource_group_name # k8s nodes resource group name; and it's location should match cluster resource group's location
   allocation_method = "Static"
   ip_version = "IPv4"
+  sku = "Standard"
 }
 
 output "client_certificate" {

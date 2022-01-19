@@ -79,3 +79,8 @@ variable "k8s_kubeconfig" {
   type = string
   default = "./output/kubeconfig"  
 }
+
+variable "k8s_nodes_resource_group_name" {
+  type = string
+  default = "en1tstkk99k8snodes"
+}
