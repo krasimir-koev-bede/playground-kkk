@@ -53,6 +53,7 @@ variable "GLOBAL_VNET_SUBNETS" {
         x = "10.0.11.0/24",
         y = "10.0.12.0/24",
         z = "10.0.13.0/24",
+        aks = "10.0.64.0/20"
     }
   
 }
@@ -72,4 +73,9 @@ variable "vm1_host_user" {
 variable "vm1_host_password" {
   type = string
   default = "Krasi123"
+}
+
+variable "k8s_kubeconfig" {
+  type = string
+  default = "./output/kubeconfig"  
 }
